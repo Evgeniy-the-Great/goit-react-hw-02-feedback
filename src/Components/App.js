@@ -4,6 +4,12 @@ import Notification from './Notification';
 import Section from './Section';
 import Statistics from './statistics/Statistics';
 
+const options = [
+  { name: 'good', title: 'Good' },
+  { name: 'neutral', title: 'Neutral' },
+  { name: 'bad', title: 'Bad' },
+];
+
 class App extends Component {
   state = {
     good: 0,
@@ -34,7 +40,10 @@ class App extends Component {
     return (
       <>
         <Section title="Please leave feedback">
-          <FeedbackOptions addFeedback={this.addFeedback} />
+          <FeedbackOptions
+            onLeaveFeedback={this.addFeedback}
+            options={options}
+          />
         </Section>
 
         <Section title="Statistics">
